@@ -19,4 +19,4 @@ app.add_url_rule('/logout', view_func=logout)
 app.add_url_rule('/', view_func=index)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
