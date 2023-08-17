@@ -8,7 +8,7 @@ pipeline {
         }
         stage ('docker image build') {
             steps {
-                sh'/usr/bin/docker image build -t salonighorpade/secure-file-tranfer .'
+                sh'/usr/bin/docker image build -t salonighorpade/secure-file-tranfer-image .'
             }
         }
         stage ('docker login') {
@@ -18,7 +18,7 @@ pipeline {
         }
         stage ('docker image push') {
             steps {
-                sh '/usr/bin/docker image push salonighorpade/secure-file-transfer'
+                sh '/usr/bin/docker image push salonighorpade/secure-file-transfer-image'
             }
         }
         stage ('get the confirmation from user') {
@@ -33,7 +33,7 @@ pipeline {
         }
         stage ('create docker service') {
             steps {
-                sh '/usr/bin/docker service create --name service1 -p 5000:5000 --replicas 2 salonighorpade/secure-file-transfer'
+                sh '/usr/bin/docker service create --name service1 -p 5000:5000 --replicas 2 salonighorpade/secure-file-transfer-image'
             }
         }
     }
